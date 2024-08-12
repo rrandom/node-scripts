@@ -77,8 +77,10 @@ function mergeSubtitles(
 
   baseSubs.toReversed().forEach((sub) => {
     if (!sub.b) {
+      if (!acc.length) {
+        accEndTime = sub.endTime;
+      }
       acc.unshift(sub.text);
-      accEndTime = sub.endTime;
     } else {
       if (acc.length) {
         sub.text = [sub.text, ...acc].join(' ');
