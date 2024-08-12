@@ -5,7 +5,7 @@
   "scripts": {
     "start": "tsx src/translate.ts",
     "build": "tsc",
-    "translate": "node bin/translate"
+    "translate": "node bin/subtitle-translate"
   },
   "keywords": [],
   "author": "",
@@ -17,5 +17,9 @@
     "srt-parser-2": "^1.2.3",
     "tsx": "^4.17.0",
     "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "commander": "^12.1.0",
+    "dotenv": "^16.4.5"
   }
 }
