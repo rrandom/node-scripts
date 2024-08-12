@@ -1,0 +1,1 @@
+console.log('Subtitle Translator CLI Initialized');

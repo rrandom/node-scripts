@@ -1,0 +1,21 @@
+{
+  "name": "scripts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsx src/translate.ts",
+    "build": "tsc",
+    "translate": "node bin/translate"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^22.2.0",
+    "axios": "^1.7.3",
+    "srt-parser-2": "^1.2.3",
+    "tsx": "^4.17.0",
+    "typescript": "^5.5.4"
+  }
+}
