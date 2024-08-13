@@ -1,23 +1,11 @@
 /**
  * tsx src/translate.ts english_subtitles.srt chinese_subtitles.srt bilingual_subtitles.srt
  */
-
-import fs from 'fs';
-import SrtParser from 'srt-parser-2';
+import path from 'path';
 import { Command } from 'commander';
+import { loadSrt, saveSrt } from './lib/subtitle';
 
-const parser = new SrtParser();
 const program = new Command();
-
-function loadSrt(filePath: string) {
-  const content = fs.readFileSync(filePath, 'utf-8');
-  return parser.fromSrt(content);
-}
-
-function saveSrt(subtitles: any[], filePath: string) {
-  const content = parser.toSrt(subtitles);
-  fs.writeFileSync(filePath, content, 'utf-8');
-}
 
 function srtTimeToMs(srtTime: string): number {
   const [hours, minutes, seconds] = srtTime.split(':');
@@ -131,7 +119,9 @@ program
   .argument('<outputFile>', 'Output Bilingual SRT file')
   .action((englishFile, chineseFile, outputFile) => {
     try {
-      processBilingualSubtitles(englishFile, chineseFile, outputFile);
+      const eng = path.resolve(process.cwd(), englishFile);
+      const ch = path.resolve(process.cwd(), chineseFile);
+      processBilingualSubtitles(eng, ch, outputFile);
       console.log('Subtitles merged successfully!');
     } catch (error) {
       console.error('SubTitles merge fail:', error);

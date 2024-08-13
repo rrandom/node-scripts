@@ -1,11 +1,6 @@
-
-$currentDir = Get-Location
-
+$scriptName = "merge-subtitle.ts"
 
 $projectDir = (Get-Item -Path $PSScriptRoot).Parent.FullName
-Set-Location $projectDir
-
-
-tsx src/merge-subtitle.ts @args
-
-Set-Location $currentDir
+$tsxPath = [System.IO.Path]::Combine($projectDir, "node_modules", ".bin", "tsx.ps1")
+$scriptPath = [System.IO.Path]::Combine($projectDir, "src", $scriptName)
+& $tsxPath $scriptPath @args

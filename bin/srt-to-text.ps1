@@ -1,4 +1,4 @@
-$scriptName = "subtitle-translate.ts"
+$scriptName = "subtitle-to-text.ts"
 
 $projectDir = (Get-Item -Path $PSScriptRoot).Parent.FullName
 $tsxPath = [System.IO.Path]::Combine($projectDir, "node_modules", ".bin", "tsx.ps1")

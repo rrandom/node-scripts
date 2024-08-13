@@ -1,12 +1,10 @@
-import fs from 'fs';
 import axios from 'axios';
-import SrtParser from 'srt-parser-2';
 import { Command } from 'commander';
 import dotenv from 'dotenv';
+import { loadSrt, saveSrt } from './lib/subtitle';
 
 dotenv.config();
 
-const parser = new SrtParser();
 const program = new Command();
 
 const DEEPL_API_KEY = process.env.DEEPL_API_KEY;
@@ -31,16 +29,6 @@ async function translateText(
     console.error('Error translating text:', error);
     return text;
   }
-}
-
-function loadSrt(filePath: string) {
-  const content = fs.readFileSync(filePath, 'utf-8');
-  return parser.fromSrt(content);
-}
-
-function saveSrt(subtitles: any[], filePath: string) {
-  const content = parser.toSrt(subtitles);
-  fs.writeFileSync(filePath, content, 'utf-8');
 }
 
 function getContext(subtitles: any[], index: number): string {
