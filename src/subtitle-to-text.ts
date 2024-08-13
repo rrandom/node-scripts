@@ -20,7 +20,6 @@ program
   .action((inputFile, outputFile) => {
     const inputFilePath = path.resolve(process.cwd(), inputFile);
     const outputFilePath = path.resolve(process.cwd(), outputFile);
-    console.log("shit");
     toText(inputFilePath, outputFilePath);
   });
 
