@@ -107,7 +107,6 @@ function processBilingualSubtitles(
   saveSrt(alignedSubs, outputFile);
 }
 
-// 命令行参数解析和执行
 program
   .name('bilingual')
   .description(
